@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=decice-width, intial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pf1_Fursys</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/font.css">
+  <link rel="stylesheet" href="css/ham.css">
+  <link rel="stylesheet" href="css/common.css">
+  <!-- <link rel="stylesheet" href="css/header.css"> -->
+  <link rel="stylesheet" href="css/portfolio1.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- 마우스 휠 이벤트 -->
+  <script type="text/javascript">
+  window.onload = function () {
+      var elm = ".whell";
+      $(elm).each(function (index) {
+          // 개별적으로 Wheel 이벤트 적용
+          $(this).on("mousewheel DOMMouseScroll", function (e) {
+              e.preventDefault();
+              var delta = 0;
+              if (!event) event = window.event;
+              if (event.wheelDelta) {
+                  delta = event.wheelDelta / 120;
+                  if (window.opera) delta = -delta;
+              }
+              else if (event.detail)
+                  delta = -event.detail / 3;
+              var moveTop = $(window).scrollTop();
+              var elmSelecter = $(elm).eq(index);
+              // 마우스휠을 위에서 아래로
+              if (delta < 0) {
+                  if ($(elmSelecter).next() != undefined) {
+                      try{
+                          moveTop = $(elmSelecter).next().offset().top;
+                      }catch(e){}
+                  }
+              // 마우스휠을 아래에서 위로
+              } else {
+                  if ($(elmSelecter).prev() != undefined) {
+                      try{
+                          moveTop = $(elmSelecter).prev().offset().top;
+                      }catch(e){}
+                  }
+              }
+
+              // 화면 이동 0.8초(800)
+              $("html,body").stop().animate({
+                  scrollTop: moveTop + 'px'
+              }, {
+                  duration: 800, complete: function () {
+                  }
+              });
+          });
+      });
+  }
+  </script>
+</head>
+<body>
+  <section id="pf1">
+    <h1>PORTFOLIO</h1>
+    <div>
+      <div class="left">
+        <h2>FURSYS</h2>
+        <ul class="list">
+          <li>
+            <strong>작업기간</strong>
+            <p>1개월</p>
+          </li>
+          <li>
+            <strong>기여도</strong>
+            <p>80%</p>
+          </li>
+          <li>
+            <strong>사용 툴</strong>
+            <p>html5, CSS3, jquery, javascript, 반응형</p>
+          </li>
+          <li>
+            <strong>설명</strong>
+            <p>FURSYS홈페이지를 벤치마킹하여 처음 작업한 결과물입니다.</p>
+          </li>
+          <li>
+            <a href="http://kimnr217.cafe24.com/1-fursys/">작업물 보러가기</a>
+          </li>
+        </ul>
+      </div>
+      <img src="img/1.jpg" alt="Fursys캡쳐본">
+      <button type="button"><a href="index.html #portfolio">목록</a></button>
+    </div>
+  </section>
+</body>
+</html>

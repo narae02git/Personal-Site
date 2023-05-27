@@ -1,0 +1,23 @@
+@charset "utf-8";
+.pie-chart {
+  position: relative;
+  display:  inline-block;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+span.center{
+  background: rgb(247, 230, 330);
+  display : block;
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  width: 150px; 
+  height: 150px;
+  border-radius: 50%;
+  text-align: center; 
+  line-height: 150px;
+  font-size: 30px;
+  transform: translate(-50%, -50%);
+}

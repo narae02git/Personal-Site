@@ -1,0 +1,93 @@
+@charset "UTF-8";
+header{
+  position: fixed;
+  width: 100%;
+  padding: 10px 0;
+  transition: all 1s;
+  z-index: 2;
+}
+header div{
+
+}
+header div h1{
+ position: relative;
+}
+header div h1 a{
+  line-height: 1;
+  color:#fff;
+  font-size: 32px;
+  font-weight: bold;
+}
+/* 날개1 */
+header div h1 a::after{
+  content: "";
+  background-image: url(../img/logo_1.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  top: -13px;
+  left: 51px;
+  transform: rotate(20deg);
+  z-index: -1;
+} 
+/* 날개2 */
+/* header div h1 a::after{
+  content: "";
+  background-image: url(../img/logo_2.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 109px;
+  height: 96px;
+  position: absolute;
+  top: -74px;
+  left: 28px;
+  transform: rotate(20deg);
+} */
+header div nav{
+  position: absolute;
+  left: 30%;
+}
+header div nav ul.gnb{
+  display: flex;
+}
+header div nav ul.gnb li{
+  font-size: 18px;
+}
+header div nav ul.gnb li a{
+  display: block;
+  line-height: 2;
+  padding: 0 20px;
+  color:#fff;
+}
+header div nav ul.gnb li a:hover{
+  color: #e65f78;
+  transition: all 1s;
+}
+/* 현재시간 */
+header div.currentTime{
+  display: flex;
+  justify-content: space-between;
+}
+header div.currentTime h2{
+  position: absolute;
+  left: 74%;
+  top: 27px;
+/*   color: #fff; */
+  font-size: 14px;
+  font-weight: bold;
+}
+header div.currentTime ol{
+  position: absolute;
+  left: 74%;
+  top: 50px;
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+/*   color: #fff; */
+  font-size: 14px;
+}
+header div .currentTime ol li{
+  
+}

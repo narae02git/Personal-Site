@@ -1,0 +1,655 @@
+@charset "UTF-8";
+/* ------------------------about------------------------ */
+section{
+  padding-top: 180px;
+  padding-bottom: 60px;
+  height: 100%; 
+  box-sizing: border-box;
+}
+#about{
+  /*! max-width: 100%; */
+  background-color: #f6fff6;
+  padding-bottom: 0;
+}
+#about .h2{
+  
+}
+#about div.about{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px 40px;
+}
+/* -----------------------left */
+#about div.left{
+  max-width: 35%;
+/*   color: #7c6055; */
+}
+#about div.left img{
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  /*! margin: 0 auto; */
+}
+#about div.left>li{
+  font-size: 42px;
+  line-height: 1.5;
+/*   color: #624e46; */
+  overflow: hidden;
+}
+#about div.left p{
+  font-size: 16px;
+  line-height: 2.5;
+  position: relative;
+}
+#about div.left p strong{
+  padding-left: 5px;
+}
+#about div.left p strong::before{
+  content: ". .";
+  position: absolute;
+  top: -19px;
+  left: 42px;
+  letter-spacing: 4px;
+  color: blue; 
+}
+#about div.left ul.name{
+
+}
+/* #about div.left ul.name::before{
+  content: "";
+  width: 3px;
+  height: 100px;
+  background-color: red;
+} */
+#about div.left ul.name li{
+  font-size: 14px;
+  line-height: 1.8;
+}
+#about div.left ul.name li:nth-child(1){
+  padding-top: 30px;
+  padding-bottom: 10px;
+}
+#about div.left ul.name li:nth-child(2){
+  padding-bottom: 10px;
+}
+/* -----------------------right */
+#about div.right{
+  /*! background-color: #eee7ab; */
+  max-width: 65%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+#about div.right>span{ 
+/*   color: #624e46; */
+}
+#about div.right span h3{
+  font-size: 23px;
+  line-height: 1.5;
+  font-weight: bold;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+#about div.right span p{
+  font-size: 18px;
+  line-height: 1.5;
+  padding-bottom: 60px;
+}
+#about div.right .info{
+  display: flex;
+  justify-content: center;
+  gap: 100PX;
+  /*! background-color: #efe3cc; */
+/*   box-sizing: border-box; */
+/*   position: absolute; */
+/*   top: 1034px;  */
+/*   left: 100px; */
+/*   border-radius: 10px; */
+/*   animation-name:infoani;
+  animation-duration: 7s; 
+  animation-iteration-count: 1;
+  */ /*! animation-timing-function:ease-out; */
+/*   color: #7c6055; */
+}
+/* @keyframes infoani{
+  0%{
+    opacity: 0;
+    top:1000px;
+  }
+  100%{
+    opacity:1;
+    top:1034px;
+  }
+} */
+#about div.right .info .info_l{
+
+}
+#about div.right .info .info_r{
+  
+}
+#about div.right .info ul li{
+  line-height: 1.8;
+  font-size: 14px;
+/*   border-top: 2px solid #aa9289; */
+/*   border-bottom: 1px solid; */
+  padding: 10px 0;
+}
+#about div.right .info ul li strong{
+  display: inline-block;
+  width: 100px;
+  /*! padding-left: 10px; */
+  letter-spacing: 2px;
+}
+#about div.right .info .info_l li:nth-child(2) strong,
+#about div.right .info .info_r li:nth-child(1) strong{
+  letter-spacing: 9px;
+}
+#about div.right .info .info_l li:nth-child(3) strong,#about div.right .info .info_l li:nth-child(4) strong,
+#about div.right .info .info_r li:nth-child(2) strong,#about div.right .info .info_r li:nth-child(3) strong{
+  letter-spacing: 32px;
+}
+
+#about div.right .info ul li strong:before{
+  content: "";
+  width: 2px;
+  height: 12px;
+  background-color: #9666;
+  display: inline-block;
+  margin-right: 5px;
+}
+#about div.right .info ul li span{
+  padding-left: 100px;
+}
+
+#about .skill{
+  background-color: #dbca3e;
+  height: 380px;
+  padding: 40px 0;
+  padding-bottom: 0;
+}
+section#about .skill h3{
+  padding-left: 800px;
+}
+section#about .skill ul{
+  width: 40%;
+  height: 100%;
+  padding: 20px;
+  padding-top: 20px;
+  padding-left: 65%;
+}
+section#about .skill ul li{  
+  font-size: 23px;
+  line-height: 2;
+  width: 100%;
+}
+section#about .skill ul li::after{
+  content: "";
+  width: 150px;
+  height: 15px;
+  display: inline-block;
+  background-color: orange;
+  margin-left: 40px;
+}
+
+
+/* ---------------skill */
+.srbg{
+  color: #fff;
+  background-color: transparent;
+}
+#skill{
+  background-color: #fff3f3;
+/*   clear: both; */
+  max-width: 100%;
+  /*! padding-bottom: 0; */
+}
+#skill h2{
+
+}
+#skill h3{
+  text-align: center;
+  font-size: 23px;
+  line-height: 2;
+  margin-bottom: 20px;
+}
+#skill div.skbox{
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 0;
+}
+#skill .skbox .lbox{
+  max-width: 35%;
+}
+#skill .skbox .lbox>div{
+  
+}
+#skill .skbox .lbox h4{
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+#skill .skbox .lbox p{
+  width: auto;
+  font-size: 21px;
+  line-height: 1.5;
+  margin-bottom: 30px;
+}
+#skill .skbox .lbox strong{
+  /*! background-color: #ccc; */
+  font-size: 43px;
+  text-align: center;
+  display: block;
+  line-height: 1.5;
+}
+#skill .skbox .sklist{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  justify-content: center;
+  margin-left: 180px;
+}
+#skill .skbox .sklist li{
+  width: 150px;
+  height: 150px;
+  border: 1px solid #ccc;
+}
+/* l after_gruop */
+#skill .skbox .after_gruop{
+  /* display: none; */
+}
+/* r */
+#skill .skbox .rbox{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: inherit;
+  max-width: 60%;
+  justify-content: center;
+}
+#skill .skbox .rbox .a,#skill .skbox .rbox .c{
+  margin-left: 0px;
+}
+#skill .skbox .rbox .b{
+  
+}
+#skill .skbox .rbox .c{
+
+}
+#skill .skbox .rbox ul.sklist li{
+  border: 1px solid;
+  width: 100px;
+  height: 100px;
+  transform: rotate(45deg);
+  background-color: rgba(0, 0, 0, 0.5);
+  background-color: pink;
+  color: #fff;
+  transition: all 1s;
+  position: realative;
+}
+#skill .skbox .rbox ul.sklist li:hover{
+  width: 130px;
+  height: 130px;
+  font-size: 23px;
+}
+#skill .skbox .rbox ul.sklist li a{
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  transform: rotate(-45deg);
+  text-align: center;
+  padding-top: 23px;
+/*   vertical-align: 35px; */
+/*   vertical-align: middle; */
+  align-items: center; 
+  line-height: 4;
+  font-weight: bold;
+  padding-left: 8px;
+}
+#skill .skbox .rbox ul.b li:nth-child(1) a{
+    line-height: 1.5;
+}
+#skill .skbox .rbox ul.sklist li div.lbox h4{
+  
+}
+#skill .skbox .rbox ul.sklist li div.lbox p{
+  
+}
+#skill .skbox .rbox ul.sklist li div.lbox strong{
+  
+}
+/* ---------------portfolio */
+section#portfolio{
+  text-align: center;
+/*   clear: both; */
+  background-color: #fff3ec;
+  padding-top: 180px;
+  box-sizing: border-box;
+}
+section#portfolio h2{
+  
+}
+section#portfolio .list_img{
+  max-width: 1200px;
+  display: flex;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 5px;
+  justify-content: center;
+  padding: 40px 0;
+}
+section#portfolio .list_img li{
+  width: 23%;
+/*   background-color: #ccc; */
+  z-index: 1;
+}
+section#portfolio .list_img li a{
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  position: relative;
+}
+section#portfolio .list_img li a img{
+
+}
+section#portfolio .list_img li a h3{
+  line-height: 2;
+  margin-bottom: 20px;
+/*   margin-top: 20px; */
+}
+section#portfolio .list_img li a span{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 78%;
+  display: block;
+  line-height: 135px;
+  text-align: center;
+  color: #fff;
+  background-color: rgba(0,0,0,0.6);
+  /*! display: none; */
+  transition: all 0.5s;
+  opacity: 0;
+}
+section#portfolio .list_img li a:hover span{
+  opacity: 1;
+  height: 70%;
+}
+/* ------------contact */
+section#contact{
+  background-color: #f2fff2;
+  text-align: center;
+  position: relative;
+  padding-bottom: 0;
+} 
+section#contact .h2{
+
+}
+section#contact .p{
+  text-align: center;
+  color: #625d5d;
+  line-height: 6.5;
+    /* width: 38%;
+  margin: 0 auto; */
+}
+section#contact button{
+  width: 135px;
+  border-radius: 10px;
+  border: none;
+  padding: 15px 30px;
+  text-transform: uppercase;
+  color: #fff;
+  background-color: #ded68e;
+  font-size: 16px;
+  font-weight: bold;
+  position: absolute;
+  top: 430px;
+  left: calc(50% - (135px / 2));
+}
+section#contact div.contact{
+  margin: 0 auto;
+  background-color: #fff2da;
+  max-width: 800px;
+  height: 100%;
+  padding: 50px;
+  /*! padding-bottom: 20px; */
+  box-sizing: border-box;
+  border-radius: 30px 30px 0 0;
+  display: flex;
+}
+section#contact .call{
+  width: 50%;
+  margin-top: 30px;
+  margin-left: 50px;
+}
+section#contact .call li{
+  text-align: left;
+  line-height: 2.5;
+}
+section#contact .call li strong{
+  margin-right: 15px;
+  border-right: 2px solid #ccc;
+  padding-right: 10px;
+}
+section#contact .sns{
+  width: 50%;
+  height: 100px;
+  display: flex;
+  margin-top: 50px;
+margin-left: 50px;
+  gap: 20px;
+  
+  /* 간격조절  */
+}
+section#contact .sns li{
+  text-align: center;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+section#contact .sns li:hover{
+  border: 2px solid #e65f78;
+  transition: all 0.3s;
+}
+section#contact .sns li a{
+/*   font-size: 7px;
+  line-height: 2px; */
+}
+section#contact .sns li a ion-icon{
+  display: block; 
+  margin: 0 auto;
+  font-size: 22px;
+  background-size: 100%;
+  height: 41px;
+}
+section#contact .sns li a ion-icon:hover{
+  color: #e65f78;
+  transition: all 0.3s;
+}
+/* 하단 영역----------------------------------------------- */
+footer{
+  background-color: #fcd7c2;
+/*   color: #fff; */
+  font-size: 25px;
+  font-weight: bold;
+  padding-top: 30px;
+} 
+footer::after{
+  content: "";
+  background-color: #e9c8b6;
+  width: 100%;
+  height: 30px;
+  display: block;
+} 
+footer .top{
+  text-align: left;
+  max-width: 900px;
+  margin: 0 auto;
+}
+footer .top span{
+  font-size: 14px;
+  line-height: 3;
+}
+footer .bottom{
+  text-align: right; 
+  max-width: 900px;
+  margin: 0 auto;
+  
+  padding-bottom: 30px;
+}
+footer .bottom::before{
+  content: "";
+  display: block;
+  width: 40px;
+  height: 40px;
+  background-image: url(../img/footer.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: 1px solid;
+  margin-left: 750px;
+  margin-bottom: 10px;
+  animation-name: roll;
+
+  animation: roll 3s infinite ease-in-out;
+  transform-origin: 50% 50%;
+}
+@keyframes roll{
+  0%{
+    transform: rotate(0deg); 
+  }
+  100% { 
+    transform: rotate(360deg); 
+    margin-left: 860px;
+  } 
+}
+
+
+/* -----------------------반응형모드---------------------------- */
+/* 1200px-------------------- */
+@media screen and (max-width:1200px){
+  #title{
+    height: 500px;
+  }
+  #title .titlein{ 
+    padding-left: 150px;
+  }
+  section#about .info{
+    top: 700px;
+    left: 0px;
+  }
+  section#about .skill h3{
+    padding-left: 600px;
+  }
+  section#portfolio::after{
+  top: 1207px;
+  }
+}
+
+/* 768px----------------------------------------- */
+@media screen and (max-width:768px){
+  .ham{
+    display: block;
+    right: -250px;
+  }
+   header div nav ul.gnb{
+    display: none;
+  }
+  .h2{
+    font-size: 30px;
+  }
+  .p{
+    padding-right: 20px;
+    padding-left: 20px; 
+  }
+  .block_center{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  section{
+    padding-top: 40px;
+  }
+  #title{
+    height: 400px;
+  }
+  #title .titlein{
+    padding-left: 100px;
+  }
+  #title .titlein h2 strong{
+    font-size: 30px;
+    margin-top: 20px;
+  }
+  #title .titlein h2 {
+    font-size: 23px;
+  }
+  #title .titlein p {
+    width: 300px;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 20px 0;
+  }
+  #title img {
+    right: 40px;
+  }
+  section#about .info {
+    width: 100%;
+    position: absolute;
+    margin: 0;
+    top: 680px;
+  }
+  section#about .info .flex-between{
+    padding: 0;  
+  }
+  section#about .skill{
+    height: 750px;
+  }
+  section#about .skill h3{
+    padding-left: 0;
+    margin-top: 430px;
+  }
+  section#about .skill ul {
+    width: 300px;
+    padding-top: 40px;
+    padding-left: 110px;
+  }
+  section#portfolio::after{
+/*   top: 1480px; */
+      top: 1522px;
+  }
+  section#portfolio .list_img {
+/*     margin: 0 auto; */
+/*     flex-wrap: wrap;
+    gap: 5px; */
+/*     justify-content: center; */
+    padding: 40px ;
+  }
+  section#contact div{
+    display: inherit;
+    height: 250px;
+  }
+  section#contact .call,section#contact .sns{
+    width: 100%;
+    margin: 20px 50px;
+    height: 80px;
+  }
+  footer .top,footer .bottom{
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  footer .bottom::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    /* background-image: (../img/footer.jpg); */
+    border-radius: 50%;
+    border: 2px solid;
+    margin-left: 300px;
+    margin-bottom: 10px;
+  }
+}

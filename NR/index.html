@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=decice-width, intial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Narae-portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/font.css">
+    <link rel="stylesheet" href="css/ham.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/title.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/fotter.css">
+    <link rel="stylesheet" href="css/circle.css">
+
+    <!-- <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script> -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <!-- slick -->
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="http://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript">
+      // slick
+      $(document).ready(function(){
+        $('.autoplay').slick({
+          dots: true,
+          infinite: true,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          autoplay: true,
+          autoplaySpeed: 2000,
+          // speed: 1000,
+          arrows : false,
+          pauseOnHover : true,
+          cssEase: 'linear'
+        });
+      });
+
+      $(document).ready(
+        function(){
+          //메뉴 scroll시 배경설정---o
+          $("ul.gnb li:nth-child(1) a").addClass("current_gnb");
+          //이벤트 창을 스크롤하는 행위---o
+          $(window).scroll(
+            function(){
+              $("header").addClass("header_bg");
+            }
+          );
+          var po1=$("#title").offset().top;
+          var po2=Math.floor($("#about").offset().top);
+          var po3=Math.floor($("#skill").offset().top);
+          var po4=Math.floor($("#portfolio").offset().top);
+          var po5=Math.floor($("#contact").offset().top);
+          var po=[po1,po2,po3,po4,po5];
+          var n;
+
+          $(window).resize(
+            function(){
+              po1=$("#title").offset().top;
+              po2=Math.floor($("#about").offset().top);
+              po3=Math.floor($("#skill").offset().top);
+              po4=Math.floor($("#portfolio").offset().top);
+              po5=Math.floor($("#contact").offset().top);
+              po=[po1,po2,po3,po4,po5];
+            }
+          );
+          //메뉴 click시 해당 section이동---o
+          $("ul.gnb li a").click(
+            function(){
+              n = $(this).attr("data-n");
+              $("html,body").stop().animate({scrollTop:po[n]},1000);
+              console.log("클릭시 section위치값:" + po[n]);
+              return false;
+            }
+          );
+          // 새로고침시 페이지위치에 따라 헤더 스타일적용---x
+          if($(window).scrollTop()>po1){
+            $("header").addClass("header_bg");
+          }
+          //스크롤이벤트---미세하게x
+          $(window).scroll(function(){
+
+            if($(window).scrollTop()>po1){
+              $("header").addClass("header_bg");
+            }else{
+              $("header").removeClass("header_bg");
+            }
+            // 타이틀 스크롤시 대메뉴색상변경 addClass--o
+            if($(window).scrollTop()>=po1){
+              $("ul.gnb li:nth-child(1) a").addClass("current_gnb");
+              $("ul.gnb li a").not("ul.gnb li:nth-child(1) a").removeClass("current_gnb");
+            }
+            if($(window).scrollTop()>=po2){
+              $("ul.gnb li:nth-child(2) a").addClass("current_gnb");
+              $("ul.gnb li a").not("ul.gnb li:nth-child(2) a").removeClass("current_gnb");
+            }
+            if($(window).scrollTop()<po2){
+            }
+            if($(window).scrollTop()>=po3){
+              $("ul.gnb li:nth-child(3) a").addClass("current_gnb");
+              $("ul.gnb li a").not("ul.gnb li:nth-child(3) a").removeClass("current_gnb");
+            }
+            if($(window).scrollTop()>=po4){
+              $("ul.gnb li:nth-child(4) a").addClass("current_gnb");
+              $("ul.gnb li a").not("ul.gnb li:nth-child(4) a").removeClass("current_gnb");
+            }
+            if($(window).scrollTop()>=po5){
+              $("ul.gnb li:nth-child(5) a").addClass("current_gnb");
+              $("ul.gnb li a").not("ul.gnb li:nth-child(5) a").removeClass("current_gnb");
+            }
+          });
+          //
+
+
+
+
+        } //
+      );
+
+      // 마우스 휠 이벤트
+      window.onload = function () {
+          var elm = ".whell";
+          $(elm).each(function (index) {
+              // 개별적으로 Wheel 이벤트 적용
+              $(this).on("mousewheel DOMMouseScroll", function (e) {
+                  e.preventDefault();
+                  var delta = 0;
+                  if (!event) event = window.event;
+                  if (event.wheelDelta) {
+                      delta = event.wheelDelta / 120;
+                      if (window.opera) delta = -delta;
+                  }
+                  else if (event.detail)
+                      delta = -event.detail / 3;
+                  var moveTop = $(window).scrollTop();
+                  var elmSelecter = $(elm).eq(index);
+                  // 마우스휠을 위에서 아래로
+                  if (delta < 0) {
+                      if ($(elmSelecter).next() != undefined) {
+                          try{
+                              moveTop = $(elmSelecter).next().offset().top;
+                          }catch(e){}
+                      }
+                  // 마우스휠을 아래에서 위로
+                  } else {
+                      if ($(elmSelecter).prev() != undefined) {
+                          try{
+                              moveTop = $(elmSelecter).prev().offset().top;
+                          }catch(e){}
+                      }
+                  }
+
+                  // 화면 이동 0.8초(800)
+                  $("html,body").stop().animate({
+                      scrollTop: moveTop + 'px'
+                  }, {
+                      duration: 800, complete: function () {
+                      }
+                  });
+              });
+          });
+      }
+
+      // 현재시간
+      $(document).ready(function(){
+        var year,month,date,hour,minute,second;
+        var dhour,dminute,dsecond;
+        function countrepeat(){
+
+          var cDay=new Date();
+          year=cDay.getFullYear();
+          month=cDay.getMonth()+1;
+          date=cDay.getDate();
+          hour=cDay.getHours();
+          minute=cDay.getMinutes();
+          second=cDay.getSeconds();
+
+          if(month<10){
+              month="0"+month;
+          }
+          if(hour<10){
+              hour="0"+hour;
+          }
+          // 현재 시간
+          $(".current .year").text(year+"년");
+          $(".current .month").text(month+"월");
+          $(".current .date").text(date+"일");
+          $(".current .hour").text(hour+"시");
+          $(".current .minute").text(minute+"분");
+          $(".current .second").text(second+"초");
+
+        }
+        setInterval(countrepeat,1000);
+      });
+
+      // skill이벤트
+      $(document).ready(
+        function(){
+          $("#skill ul.sklist li:nth-child(1) a").addClass("srbg");
+          //addClass(); 클래스를 붙여라
+          $("#skill ul.sklist li a").hover(
+            function(){
+              $(this).addClass("srbg"); //this란 이벤트(클릭)가 발생한 대상을 의미
+              $("#skill ul.sklist li a").not(this).removeClass("srbg");
+              //not() ~가 아닌
+              return false; //a태그에 의한 새로고침이 안되게 함
+            }
+          );
+        }
+      );
+
+      // skill텍스트
+      $(document).ready(
+        function(){
+          var n=1;
+
+          $(".lbox .inb").not(".lbox .inb"+n).hide();
+
+          $(".rbox a").hover(function(){
+            n=$(this).attr("data-n");
+            $(".lbox .inb"+n).show();
+            $(".lbox>div").not(".lbox .inb"+n).hide();
+          });
+
+        }
+      );
+    
+      // slill circle애니
+      $(window).ready(function(){
+        draw(80, '.pie-chart1', '#8b22ff');
+        draw(50, '.pie-chart2', '#8b22ff');
+        draw(30, '.pie-chart3','#8b22ff');
+        draw(90, '.pie-chart4', '#8b22ff');
+        draw(60, '.pie-chart5', '#8b22ff');
+        draw(40, '.pie-chart6','#8b22ff');
+        draw(70, '.pie-chart7','#8b22ff');
+      });
+
+      function draw(max, classname, colorname){
+        var i=1;
+          var func1 = setInterval(function(){
+            if(i<max){
+              color1(i,classname,colorname);
+              i++;
+            } else{
+              clearInterval(func1);
+            }
+          },10);
+      }
+      function color1(i, classname,colorname){
+        $(classname).css({
+          "background":"conic-gradient("+colorname+" 0% "+i+"%, #ffffff "+i+"% 100%)"
+        });
+      }
+    </script>
+
+</head>
+<body>
+  <!-- 상단영역 //////////////////////////////////// -->
+  <header>
+    <div class="block_center flex-between">
+      <h1 class="logo"><a href="">Narae.</a></h1>
+      <nav>
+        <ul class="gnb flex-between">
+          <li><a href="#title" data-n="0">Home</a></li>
+          <li><a href="#about" data-n="1">About</a></li>
+          <li><a href="#skill" data-n="2">Skill</a></li>
+          <li><a href="#portfolio" data-n="3">Portfolio</a></li>
+          <li><a href="#contact" data-n="4">Contact</a></li>
+        </ul>
+        <span class="ham"></span>
+      </nav>
+    </div>
+    <div class="currentTime">
+      <h2>현재시간</h2>
+      <ol class="current">
+          <li class="year"></li>
+          <li class="month"></li>
+          <li class="date"></li>
+          <li class="hour"></li>
+          <li class="minute"></li>
+          <li class="second"></li>
+      </ol>
+  </div>
+  </header>
+  <!-- 타이틀영역 //////////////////////////////////// -->
+  <div id="title" class="whell">
+    <div class="titlein box">
+      <h2>Welcome<strong>I'M A Front-end Developer.</strong></h2>
+      <p>나래의 홈페이지에 오신걸 환영합니다<br>제 이야기를 들어 보실래요?</p>
+      <!-- <button>자세히 보러 가볼까요!</button> -->
+    </div>
+    <div class="autoplay">
+      <img src="img/title_bg.jpg" alt="나래사진1">
+      <img src="img/title_bg1.jpg" alt="나래사진2">
+      <img src="img/title_bg2.jpg" alt="나래사진3">
+    </div>
+  </div>
+  <!-- 컨텐츠영역 //////////////////////////////////// -->
+
+  <!-- about ======================------- -->
+  <section id="about" class="whell">
+    <h2 class="h2">About Me</h2>
+    <div class="about box">
+      <div class="left">
+        <img src="img/knr.jpg" alt="증명사진">
+        <li>KIM NA RAE</li>
+        <p>항상<strong>비상</strong>하는 개발자 김나래입니다.</p>
+        <ul class="name">
+          <li>나래: 날개의 방언</li>
+          <li>꿈을 향해 날아가라는 이름의 뜻대로
+            <span class="block">제가 목표하는 곳 까지 날아오르려고 합니다.</span>
+          </li>
+          <li>이름값하는 개발자가 되겠습니다 :-)</li>
+        </ul>
+      </div>
+      <div class="right">
+        <span>
+          <h3>더 높은 곳으로!</h3>
+          <p class="">UI,UX기반이 탄탄한 개발자가 되어 사용자들에게 편리함을 제공하려고 합니다.
+            또한 jquery, javascript, bootstrap을 사용하여 동적이고 효율성을 추구하는 개발자가 되기위해 노력 중 입니다.
+            언어들을 하나씩 알아가는 과정이 재밌고 뿌듯한 개발자입니다.</p>
+        </span>
+        <div class="info">
+            <ul class="info_l">
+              <li><strong>생년월일</strong>1994.02.17</li>
+              <li><strong>거주지</strong>경기도 부천시 신흥로</li>
+              <li><strong>학력</strong>오산대학교 공연축제콘텐츠과 졸업
+                <span class="block">신광여자고등학교 졸업</span>
+              </li>
+              <li><strong>이력</strong>
+                프론트엔드개발과정 이수
+                <!-- <span class="block">(주)아이텍 근무</span> -->
+                <!-- <span class="block">(주)루마루커뮤니케이션 근무</span> -->
+              </li>
+            </ul>
+            <ul class="info_r">
+              <li>
+                <strong>자격증</strong>GTQ 2급
+                <span class="block">1종 특수면허</span>
+              </li>
+              <li>
+                <strong>장점</strong>환한 미소
+                <span class="block">거침없는 친화력</span>
+                <span class="block">무한 긍정에너지</span>
+              </li>
+              <li>
+                <strong>취미</strong>노래들으면서 커피마시기
+                <span class="block">영화보기</span>
+                <span class="block">꽃 선물하기</span>
+              </li>
+            </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- skill ======================------- -->
+  <section id="skill" class="whell">
+    <h2 class="h2">Skill</h2>
+    <h3>꾸준히 학습하여 업무에 적합한 인재가 되기 위해 노력합니다.</h3>
+    <div class="skbox">
+        <div class="rbox">
+          <ul class="sklist a">
+            <li><a href="" data-n="1">HTML5</a></li>
+            <li><a href="" data-n="2">CSS3</a></li>
+            <li><a href="" data-n="3">jquery</a></li>
+          </ul>
+          <ul class="sklist b">
+            <li><a href="" data-n="4">웹표준,<span class="block">웹접근성</span></a></li>
+            <li><a href="" data-n="5">반응형</a></li>
+            <li><a href="" data-n="6">javascript</a></li>
+          </ul>
+          <ul class="sklist c">
+            <li><a href="" data-n="7">bootstrap</a></li>
+            <li><a href="" data-n="8">wordpress</a></li>
+            <li><a href="" data-n="9">React</a></li>
+          </ul>
+        </div>
+        <div class="lbox">
+          <div class="inb1">
+            <h4>HTML5</h4>
+            <p>기본기에 충실한 마크업으로 적절한 태그를 사용합니다.
+            </p>
+            <div class="pie-chart pie-chart1">
+              <span class="center">80%</span>
+            </div>
+            <!-- <strong>80%</strong> -->
+          </div>
+          <div class="inb2 hide">
+            <h4>CSS3</h4>
+            <p>기초스타일링부터 애니메이션까지 Css를 사용합니다.
+            </p>
+            <div class="pie-chart pie-chart2">
+              <span class="center">50%</span>
+            </div>
+            <!-- <strong>80%</strong> -->
+          </div>
+          <div class="inb3 hide">
+            <h4>jquery</h4>
+            <p>Slick을 사용해 슬라이더를 사용해 동적인 웹을 구현합니다.
+            </p>
+            <div class="pie-chart pie-chart3">
+              <span class="center">30%</span>
+            </div>
+            <!-- <strong>90%</strong> -->
+          </div>
+          <div class="inb4 hide">
+            <h4>웹표준, 웹접근성</h4>
+            <p>사용자의 입장에서 생각하며 작업을 합니다.
+            </p>
+            <div class="pie-chart pie-chart4">
+              <span class="center">90%</span>
+            </div>
+            <!-- <strong>90%</strong> -->
+          </div>
+          <div class="inb5 hide">
+            <h4>반응형</h4>
+            <p>PC, 태블릿, 모바일에 맞는 화면을 구현합니다.
+            </p>
+            <div class="pie-chart pie-chart4">
+              <span class="center">90%</span>
+            </div>
+            <!-- <strong>90%</strong> -->
+          </div>
+          <div class="inb6 hide">
+            <h4>javascript</h4>
+            <p>자바스크립트 프레임워크와 라이브러리를 기반으로 웹의 풍부한 동작효과를 주고 AOS사용으로 효율적으로 작업합니다.
+            </p>
+            <div class="pie-chart pie-chart5">
+              <span class="center">60%</span>
+            </div>
+            <!-- <strong>60%</strong> -->
+          </div>
+          <div class="inb7 hide">
+            <h4>bootstrap</h4>
+            <p>bootstrap을 사용하여 시간을 단축하여 효율적으로 작업합니다.
+            </p>
+            <div class="pie-chart pie-chart6">
+              <span class="center">40%</span>
+            </div>
+            <!-- <strong>70%</strong> -->
+          </div>
+          <div class="inb8 hide">
+            <h4>wordpress</h4>
+            <p>카페24, 닷홈, 우비등 워드프레스를 다룰 줄 알고 호스팅한 경험이 있습니다.
+            </p>
+            <div class="pie-chart pie-chart7">
+              <span class="center">70%</span>
+            </div>
+            <!-- <strong>90%</strong> -->
+          </div>
+          <div class="inb9 hide">
+            <h4>React</h4>
+            <p>요즘 트렌드에 발 맞춰가기위해 React를 공부중입니다.
+            </p>
+            <div class="pie-chart pie-chart6">
+              <span class="center">40%</span>
+            </div>
+            <!-- <strong>50%</strong> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- portfolio ======================------- -->
+  <section id="portfolio" class="whell">
+      <h2 class="h2">Portfolio</h2>
+      <ul class="list_img flex-center">
+        <li>
+          <a href="pf1.html">
+            <img src="img/1.jpg" alt="퍼시스작업물">
+            <h3>FURSYS</h3>
+            <span>View More</span>
+          </a>
+        </li>
+        <li>
+          <a href="pf2.html">
+            <img src="img/2.jpg" alt="퍼시스 리뉴얼 작업물">
+            <h3>FURSYS RENEWER</h3>
+            <span>View More</span>
+          </a>
+        </li>
+        <li>
+          <a href="pf3.html">
+            <img src="img/3.jpg" alt="세움터 작업물">
+            <h3>세움터</h3>
+            <span>View More</span>
+          </a>
+        </li>
+        <li>
+          <a href="pf4.html">
+            <img src="img/4.jpg" alt="">
+            <h3>STATED</h3>
+            <span>View More</span>
+          </a>
+        </li>
+        <li>
+          <a href="pf5.html">
+            <img src="img/5.jpg" alt="">
+            <h3>KERRI</h3>
+            <span>View More</span>
+          </a>
+        </li>
+        <li>
+          <a href="pf6.html">
+            <img src="img/6.jpg" alt="">
+            <h3>SAMHWA</h3>
+            <span>View More</span>
+          </a>
+        </li>
+        <li>
+          <a href="pf7.html">
+            <img src="img/7.jpg" alt="">
+            <h3>LIRIKOS</h3>
+            <span>View More</span>
+          </a>
+        </li>
+        <li>
+          <a href="pf8.html">
+            <img src="img/8.jpg" alt="">
+            <h3>HANWHA</h3>
+            <span>View More</span>
+          </a>
+        </li>
+      </ul>
+  </section>
+  <!-- contact ======================------- -->
+  <section id="contact" class="whell">
+    <div class="box">
+      <h2 class="h2">Contact Me</h2>
+      <p class="p">제 홈페이지를 끝까지 봐 주셔서 감사합니다 :) 제가 궁금하시다면 아래로 연락주세요</p>
+      <button>HIRE ME!</button>
+      <div class="contact">
+        <ul class="call">
+          <li><strong>연락처</strong>010.5435.7229</li>
+          <li><strong>이메일</strong>kimnr0217@gmail.com</li>
+        </ul>
+        <ul class="sns">
+          <li><a href=""><ion-icon name="logo-facebook"></ion-icon><span class="hide">facebook</span></a></li>
+          <li><a href=""><ion-icon name="logo-linkedin"></ion-icon><span class="hide">linkedin</span></a></li>
+          <li><a href=""><ion-icon name="logo-pinterest"></ion-icon><span class="hide">twitter</span></a></li>
+          <li><a href=""><ion-icon name="logo-twitter"></ion-icon><span class="hide">twitter</span></a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- 하단영역 //////////////////////////////////// -->
+  <footer class="whell">
+    <p class="top">Thank you For Reading.<span class="block">좋은 기회로 뵙길 바랍니다.</span></p>
+    <p class="bottom">See You Soon</p>
+  </footer>
+  <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>
